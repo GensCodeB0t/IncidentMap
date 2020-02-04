@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const DARKSKY_API_KEY = require('./src/data/api_keys/index.js');
 
 module.exports = {
   entry: "./src/index.js",
@@ -32,7 +33,7 @@ module.exports = {
     hotOnly: true,
     proxy:{
       "/weather":{
-        target: "https://api.darksky.net/forecast/39db3bed15dc5e816f9ebf290fb71737",
+        target: `https://api.darksky.net/forecast/${DARKSKY_API_KEY}`,
         pathRewrite: {'^/weather' : ''},
         ws: true,
         changeOrigin: true
