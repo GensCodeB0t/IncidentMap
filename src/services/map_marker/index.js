@@ -1,4 +1,4 @@
-import data from '../../../public/data/F01705150090.json';
+import data from '../../../public/data/Incidents.json';
 
 export const MapMarkerService = (props) =>{
     const getInitialCenter = () =>{
@@ -10,6 +10,7 @@ export const MapMarkerService = (props) =>{
 
     const getMarkerData = async() =>{
         try{         
+            var weatherData = await props.ApiService.getWeatherByDateAndLocation(data["address"]["latitude"], data["address"]["longitude"], data["description"]["event_opened"]);
             var _markers = [];
             _markers.push({
                 name: "Incident",

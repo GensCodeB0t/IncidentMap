@@ -10,6 +10,7 @@ export default function WithServices(props){
                 return React.cloneElement(child, {
                 ...props,
                 ...{
+                    ApiService: ApiService,
                     MapMarkerService: MapMarkerService({ApiService:ApiService()}),
                     FlattenDataService: FlattenDataService
                 }} );
